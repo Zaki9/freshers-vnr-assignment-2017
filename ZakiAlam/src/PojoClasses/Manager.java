@@ -5,10 +5,19 @@ public class Manager {
 	private int manager_id= 0 ;
 	private String manager_name= "" ;
 	private String manager_add= "" ;
-	private int manager_cell= 0 ;
+	private float manager_cell= 0 ;
 	private int cust_tableno= 0 ;
 	
 	
+	public Manager(int manager_id, String manager_name, String manager_add,
+			float manager_cell, int cust_tableno) {
+		super();
+		this.manager_id = manager_id;
+		this.manager_name = manager_name;
+		this.manager_add = manager_add;
+		this.manager_cell = manager_cell;
+		this.cust_tableno = cust_tableno;
+	}
 	public int getManager_id() {
 		return manager_id;
 	}
@@ -27,10 +36,10 @@ public class Manager {
 	public void setManager_add(String manager_add) {
 		this.manager_add = manager_add;
 	}
-	public int getManager_cell() {
+	public float getManager_cell() {
 		return manager_cell;
 	}
-	public void setManager_cell(int manager_cell) {
+	public void setManager_cell(float manager_cell) {
 		this.manager_cell = manager_cell;
 	}
 	public int getCust_tableno() {

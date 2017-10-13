@@ -1,15 +1,17 @@
 package PojoClasses;
+import java.util.Random;
+
 import Main.ReadFile;
 public class CustomerD {
 	private int cust_idD= 0 ;
 	private int cust_tableno= 0 ;
 	private String cust_vehno= "" ;
 	private String cust_park= "" ;
-	private String cust_name= "" ;
-	private String cust_add= "" ;
-	private int cust_cell= 0;
+	private String cust_name= "" ;//f
+	private String cust_add= "" ;//f
+	private int cust_cell= 0;  //f
 	private float cust_total= 0 ;
-	private String cust_feed= "" ;
+	private String cust_feed= "" ;   //f
 	private Manager cust_manager_obj= null ;
 	
 	
@@ -19,18 +21,14 @@ public class CustomerD {
 
 	public CustomerD() {
 		
-		this.cust_idD = (int) Math.random()*1000; 
-		this.cust_tableno=(int)Math.random()*50; 
+		
+		this.cust_idD = (int) (Math.random()*1000); 
+		this.cust_tableno= 1+(int)(Math.random()*50);
 		this.cust_vehno= "AP04" +(int)Math.random()*1000; 
 		this.cust_park= "A"; 
 		ReadFile rf = new ReadFile("src\\DataFiles\\manager.txt") ; 
 		this.cust_manager_obj = rf.readManager(this.cust_tableno); 
-		System.out.println(this.cust_manager_obj);
-		
-
-		
-		
-		
+		//System.out.println(this.cust_manager_obj.getManager_name());		
 		
 	}
 	public int getCust_idD() {

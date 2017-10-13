@@ -17,6 +17,7 @@ public class classMain {
       
         if(i==1){
         	CustomerD cd = new CustomerD(); 
+        	//System.out.println(cd.getCust_tableno() + " " + cd.getCust_idD());
         }
         else if(i==2)
         {
