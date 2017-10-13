@@ -3,8 +3,11 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import PojoClasses.Manager;
+import PojoClasses.Order;
 public class ReadFile {
  private String file_name="" ;
 
@@ -21,7 +24,7 @@ public Manager readManager( int cust_tableno){
 		BufferedReader in = new BufferedReader(new FileReader(this.file_name));
 		String line;
 		int x= 1+(int)(Math.random()*3);
-		System.out.println(x); int c=1;
+		int c=1;
 		while((line = in.readLine()) != null)
 		{
 		    if(c==x)
@@ -52,5 +55,35 @@ public Manager readManager( int cust_tableno){
 	
 }
  
+public  java.util.List<Order>  readOrder(){
+	
+	 
+	try {
+		BufferedReader in = new BufferedReader(new FileReader(this.file_name));
+		String line; 
+		List <Order> lo = new ArrayList<Order>();
+		while((line = in.readLine()) != null)
+		{
+		    System.out.println(line);
+	        String [] arr = line.split(" ");
+	        Order  order = new Order( Integer.parseInt(arr[0]), arr[1], Float.parseFloat(arr[2])) ;
+	        lo.add(order);
+	        
+	        
+		}
+		in.close();
+       
+       return lo ;
+		
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return null;
+	
+}
  
 }
