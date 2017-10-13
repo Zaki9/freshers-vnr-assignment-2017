@@ -12,12 +12,13 @@ public class CustomerD implements Customer {
 	private String cust_vehno= "" ;
 	private String cust_name= "" ;//f
 	private String cust_add= "" ;//f
-	private int cust_cell= 0;  //f
-	private float cust_total= 0 ;
+	private float cust_cell= 0;  //f
 	private String cust_feed= "" ;   //f
 	private Manager cust_manager_obj= null ;
 	private int cust_order_id = 0 ; 
+	private HotelManagement htm =null ;
 	private List <Order> cust_order = null ;
+
 	
 	
 	
@@ -33,6 +34,7 @@ public class CustomerD implements Customer {
 		ReadFile rf = new ReadFile("src\\DataFiles\\manager.txt") ; 
 		this.cust_manager_obj = rf.readManager(this.cust_tableno); 
 		this.cust_order = new ArrayList<Order>();
+		this.htm = new HotelManagement(); 
 		
 	}
 
@@ -86,21 +88,11 @@ public class CustomerD implements Customer {
 
 
 
-	public int getCust_cell() {
+	public float getCust_cell() {
 		return cust_cell;
 	}
 
-
-
-
-
-
-	public float getCust_total() {
-		return cust_total;
-	}
-
-
-
+ 
 
 
 
@@ -167,25 +159,6 @@ public class CustomerD implements Customer {
 
 
 
-	
-
-
-
-
-
-
-	@Override
-	public void save_Customer_Total(float total) {
-		// TODO Auto-generated method stub
-		this.cust_total = total ;
-		
-	}
-
-
-
-
-
-
 	@Override
 	public void save_Customer_Feedback(String feed) {
 		// TODO Auto-generated method stub
@@ -216,6 +189,82 @@ public class CustomerD implements Customer {
 		this.cust_order_id =  (int) (Math.random()*5001); 
 
 		
+	}
+
+
+
+
+
+
+	public int getCust_order_id() {
+		return cust_order_id;
+	}
+
+
+
+
+
+
+	public HotelManagement getHtm() {
+		return htm;
+	}
+
+
+
+
+
+
+	@Override
+	public void get_Customer_Name() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+	@Override
+	public int get_Customer_Id() {
+		// TODO Auto-generated method stub
+		return this.cust_idD; 
+		
+	}
+
+
+
+
+
+
+	@Override
+	public String get_Customer_Feedback() {
+		// TODO Auto-generated method stub
+		return this.cust_feed ;
+		
+	}
+
+
+
+
+
+
+	@Override
+	public void save_Customer_Number(float cust_cell) {
+		// TODO Auto-generated method stub
+		this.cust_cell = cust_cell;
+		
+	}
+
+
+
+
+
+
+	@Override
+	public List<Order> get_Customer_OrderDetails() {
+		// TODO Auto-generated method stub
+		return getCust_order();
 	}
 
  

@@ -15,11 +15,37 @@ public class HotelManagement {
 	
 	private String exchef_name= "Mr.Sanjeev" ;
 	private int exchef_id= 501;
+	public String getHost_name() {
+		return host_name;
+	}
+	public int getHost_id() {
+		return host_id;
+	}
+	public String getVpark_name() {
+		return vpark_name;
+	}
+	public int getVpark_id() {
+		return vpark_id;
+	}
+	public String getBboy_name() {
+		return bboy_name;
+	}
+	public int getBboy_id() {
+		return bboy_id;
+	}
+	public String getExchef_name() {
+		return exchef_name;
+	}
+	public int getExchef_id() {
+		return exchef_id;
+	}
 	
 	
-	private CustomerD customer = null ;
+	//private CustomerD customer = null ;
+	
+	
 
 	
-	
+
 
 }
