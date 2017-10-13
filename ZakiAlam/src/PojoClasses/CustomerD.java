@@ -1,5 +1,5 @@
 package PojoClasses;
-
+import Main.ReadFile;
 public class CustomerD {
 	private int cust_idD= 0 ;
 	private int cust_tableno= 0 ;
@@ -10,7 +10,29 @@ public class CustomerD {
 	private int cust_cell= 0;
 	private float cust_total= 0 ;
 	private String cust_feed= "" ;
-	private String cust_manager_name= "" ;
+	private Manager cust_manager_obj= null ;
+	
+	
+	
+	
+	
+
+	public CustomerD() {
+		
+		this.cust_idD = (int) Math.random()*1000; 
+		this.cust_tableno=(int)Math.random()*50; 
+		this.cust_vehno= "AP04" +(int)Math.random()*1000; 
+		this.cust_park= "A"; 
+		ReadFile rf = new ReadFile("src\\DataFiles\\manager.txt") ; 
+		this.cust_manager_obj = rf.readManager(this.cust_tableno); 
+		System.out.println(this.cust_manager_obj);
+		
+
+		
+		
+		
+		
+	}
 	public int getCust_idD() {
 		return cust_idD;
 	}
@@ -65,10 +87,11 @@ public class CustomerD {
 	public void setCust_feed(String cust_feed) {
 		this.cust_feed = cust_feed;
 	}
-	public String getCust_manager_name() {
-		return cust_manager_name;
+	public Manager getCust_manager_obj() {
+		return cust_manager_obj;
 	}
-	public void setCust_manager_name(String cust_manager_name) {
-		this.cust_manager_name = cust_manager_name;
+	public void setCust_manager_obj(Manager cust_manager_obj) {
+		this.cust_manager_obj = cust_manager_obj;
 	}
+	 
 }
