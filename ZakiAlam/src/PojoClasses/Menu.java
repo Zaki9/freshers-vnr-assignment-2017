@@ -13,9 +13,16 @@ public class Menu {
 			return rf.readOrder();
 
 		} else if (i == 1 && choice == 2) {
+			ReadFile rf = new ReadFile("src\\DataFiles\\MainCourseNonVeg.txt");
+			return rf.readOrder();
+			
 
 		} else if (i == 2 && choice == 1) {
+			ReadFile rf = new ReadFile("src\\DataFiles\\StarterVeg.txt");
+			return rf.readOrder();
 		} else if (i == 2 && choice == 2) {
+			ReadFile rf = new ReadFile("src\\DataFiles\\MainCourseVeg.txt");
+			return rf.readOrder();
 
 		}
 		return null;

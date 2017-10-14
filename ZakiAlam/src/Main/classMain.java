@@ -15,7 +15,7 @@ public class classMain {
 		System.out
 				.println("Hi Welcome to the Restraunt. . . Please provide the keys to V.P guys for car parking");
 		System.out
-				.println("For TakeAway press 1 or Press 2 for insides restraunt");
+				.println("For Inside press 1 or Press 2 for Takeaway restraunt");
 		List<Order> userorders = null;
 		do {
 			i = in.nextInt();
@@ -28,17 +28,20 @@ public class classMain {
 		CustomerT ct = null;
 
 		if (i == 1) {
-			 cd = new CustomerD();
-
+			cd = new CustomerD();
 
 			System.out
 					.println("car parked safely , table alloted , for normal water press 1 press 2 for mineral else press3");
-			i = in.nextInt();
+			i = in.nextInt();w=i;
 			if (i == 2) {
 				w = 2;
+				Order water = new Order(701, "Bisleri Bottle", "20");
+				cd.save_Customer_OrderDetails(water);
+
 			}
 		} else if (i == 2) {
-			cd= new CustomerD(true);
+			w=0;
+			cd = new CustomerD(true);
 			ct = new CustomerT();
 		}
 
@@ -148,35 +151,36 @@ public class classMain {
 				System.out
 						.println("Wanna confirm the order 1 , wnna add more 2, cancel 3");
 				i = in.nextInt();
-				if (i == 1 || i == 3) {
+				if (i == 1) {
 					break;
+				} else if (i == 3) {
+					System.out.println("Its..okay .THanks for your time.");
+					System.exit(0);
 				}
 			}
 
 		}
-		Bill b =null;
-		if(w==0){
-		
+		Bill b = null;
+		if (w == 0) {
+
 			System.out.println("Please ENter your name");
-		    String n= in.next();
-		    cd.save_Customer_Name(n) ;
-		    System.out.println("Please ENter your Mobile  No .");
-		    float no = in.nextFloat();
-		    ct.setCust_cell(no);
-		    
-		    System.out.println("your bill is");
-		    cd.setCust_take_away(ct);
-		    
-			  b = new Bill("TAKEAway", cd);	    
-		    
-		}
-		else
-		{
-			  b = new Bill("DiveIN", cd);	    
+			String n = in.next();
+			cd.save_Customer_Name(n);
+			System.out.println("Please ENter your Mobile  No .");
+			float no = in.nextFloat();
+			ct.setCust_cell(no);
+
+			System.out.println("your bill is");
+			cd.setCust_take_away(ct);
+
+			b = new Bill("TAKEAway", cd);
+
+		} else {
+
+			b = new Bill("DiveIN", cd);
 
 		}
-		
-		
+
 		b.PrintBill();
 
 		System.out
@@ -184,35 +188,26 @@ public class classMain {
 
 		i = in.nextInt();
 
-		if (i == 1&&w!=0) {
+		if (i == 1 && w == 0) {
 			System.out.println("Enter your name");
 			String name = in.next();
 
 			System.out.println("Enter your cellno");
 			float no = in.nextFloat();
-
+			ct.setCust_cell(no);
 			System.out.println("Enter the feedback ");
 			String feed = in.next();
 			cd.save_Customer_Name(name);
 			cd.save_Customer_Feedback(feed);
 
-		}
-		else{
+		} else {
 			System.out.println("Enter the feedback ");
 			String feed = in.next();
-      		cd.save_Customer_Feedback(feed);
-			
+			cd.save_Customer_Feedback(feed);
+
 		}
-        
+
 		System.out.println("Thanks for your time , Visit Again");
-		/*// if not purchased anything
-		System.out.println("Bill time" + cd.getCust_idD());
-
-		Bill b = new Bill("Dine in", cd);
-		System.out.println(b.getCust().get_Customer_Id()
-				+ b.getCust().get_Customer_Feedback());*/
-
-		
 
 	}
 

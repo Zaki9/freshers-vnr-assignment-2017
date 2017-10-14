@@ -66,7 +66,7 @@ public  java.util.List<Order>  readOrder(){
 		{
 		    System.out.println(line);
 	        String [] arr = line.split(" ");
-	        Order  order = new Order( Integer.parseInt(arr[0]), arr[1], Float.parseFloat(arr[2])) ;
+	        Order  order = new Order( Integer.parseInt(arr[0]), arr[1], (arr[2])) ;
 	        lo.add(order);
 	        
 	        

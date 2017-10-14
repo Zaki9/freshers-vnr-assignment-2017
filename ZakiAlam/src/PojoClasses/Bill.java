@@ -33,7 +33,10 @@ public class Bill {
 		while (itr.hasNext()) {
 			o= (Order) itr.next();
 			System.out.println(o.getItem_name() + " " + o.getItem_cost()+ " "+o.getItem_quantity());
-			t+=o.getItem_cost()*o.getItem_quantity() ;
+			
+			String str[] = o.getItem_cost().split("\\.");
+			System.out.println(o.getItem_cost());
+			t+=Integer.parseInt(str[1])*o.getItem_quantity() ;
 			
 
 		}

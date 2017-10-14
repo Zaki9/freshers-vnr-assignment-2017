@@ -3,12 +3,12 @@ package PojoClasses;
 public class Order {
 	public int item_id = 0 ;
 	public String item_name = "" ;
-	public float item_cost= 0 ;
+	public String item_cost= "";
 	public int item_quantity = 0 ;
 	
 	
 	
-	public Order(int item_id, String item_name, float item_cost) {
+	public Order(int item_id, String item_name, String item_cost) {
 		super();
 		this.item_id = item_id;
 		this.item_name = item_name;
@@ -31,10 +31,10 @@ public class Order {
 	public void setItem_name(String item_name) {
 		this.item_name = item_name;
 	}
-	public float getItem_cost() {
+	public String getItem_cost() {
 		return item_cost;
 	}
-	public void setItem_cost(float item_cost) {
+	public void setItem_cost(String item_cost) {
 		this.item_cost = item_cost;
 	}
 	public int getItem_quantity() {

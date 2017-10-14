@@ -1,0 +1,6 @@
+160 Gulab-Jamun  Rs.40
+161 Gajar-Ka-Halwa Rs.50
+162 Moong-Ka-Halwa Rs.50
+163 Rice-Kheer Rs.60
+164 Double-Ka-Meetha Rs.80
+165 Ice-Cream Rs.50

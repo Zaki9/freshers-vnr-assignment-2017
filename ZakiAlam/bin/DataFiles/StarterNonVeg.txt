@@ -1,3 +1,6 @@
-110 Tandoori-Chicken 180
-111 Chicken-Lollipop 200
-112 Chicken-Drumstick 200
+110 Tandoori-Chicken Rs.180
+111 Chicken-Lollipop Rs.200
+112 Chicken-Drumstick Rs.200
+113 Tangdi-Chicken Rs.180
+114 Kakori-Kebabs Rs.250
+115 Tangdi-kebabs Rs.250
