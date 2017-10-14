@@ -32,9 +32,12 @@ public class classMain {
 			if (i == 2) {
 				w = 2;
 			}
-			boolean f = true;
+			boolean f = true ;
+			boolean inv =false;
 			Menu mn = new Menu();
 			while (f) {
+				inv=true;
+
 				System.out
 						.println("Press 1 for NonVeg , 2 for Veg , 3 for Beverages , 4 for Dessert , 5 for Indian Breads , anyother key to exit");
 				i = in.nextInt();
@@ -48,6 +51,12 @@ public class classMain {
 					System.out
 							.println("Press the id no to select the order else press anything to go back");
 					int id = in.nextInt();
+					if(id<110||id>1000)
+					{
+						System.out.println("Enter a valid id");
+						inv=false ; 
+						break ;
+					}
 
 					userorders = cd.get_Customer_OrderDetails();
 					Iterator itruo = userorders.iterator();
@@ -59,7 +68,7 @@ public class classMain {
 							System.out
 									.println("Order Contains this item , do you wnna change the quantity ? if no press 0 , else press the new quantity no");
 							q = in.nextInt();
-							if(q==0)
+							if(q<=0)
 							{break;}
 							o.setItem_quantity(q);
 							System.out.println("quantity updated");
@@ -69,7 +78,7 @@ public class classMain {
 					}
 									
 
-					if (q >=0) {
+					if (q !=-1) {
 					break;
 					}
 
@@ -78,10 +87,16 @@ public class classMain {
 						Order o = (Order) itr.next();
 						//System.out.println(o.getItem_name());
 						    if (id == o.getItem_id()) {
-							cd.save_Customer_OrderDetails(o);
 							System.out
 									.println("Please Enter the Quantity of the order");
 							q = in.nextInt();
+							if(q<=0)
+							{
+								System.out.println("please enter a valid quantity");
+								break;
+							}
+							cd.save_Customer_OrderDetails(o);
+
 							o.setItem_quantity(q);
 							break;
 						}
@@ -107,7 +122,9 @@ public class classMain {
 				}
 
 				}
-
+               
+				if(inv==true)
+				{
 				System.out.println("ORDER DETAILS : ");
 			    userorders= cd.get_Customer_OrderDetails();
 			    Iterator itr =userorders.iterator();
@@ -123,6 +140,7 @@ public class classMain {
 				if (i == 1 || i == 3) {
 					break;
 				}
+			}
 
 			}
 

@@ -23,20 +23,21 @@ public class Bill {
 	public void PrintBill() {
 
 		List<Order> ord = this.cust.get_Customer_OrderDetails();
-		System.out.println(ord);Order o =null;
+		Order o =null;
         float t=0;
+
+		System.out.println("Invoice");
+		System.out.println("cust_id "+this.cust.get_Customer_Id());
+		System.out.println("c_orderid "+this.cust.get_Customer_Order_Id());
 		Iterator itr = ord.iterator();
 		while (itr.hasNext()) {
 			o= (Order) itr.next();
-			System.out.println(o.getItem_name() + " " + o.getItem_cost());
-			t+=o.getItem_cost() ;
+			System.out.println(o.getItem_name() + " " + o.getItem_cost()+ " "+o.getItem_quantity());
+			t+=o.getItem_cost()*o.getItem_quantity() ;
 			
 
 		}
 		
-		System.out.println("Invoice");
-		System.out.println("cust_id"+this.cust.get_Customer_Id());
-		System.out.println("c_orderid"+this.cust.get_Customer_Order_Id());
 
 		
 		System.out.println("gst "+ t*36/100);
