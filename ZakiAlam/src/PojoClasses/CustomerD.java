@@ -20,6 +20,7 @@ public class CustomerD implements Customer {
 	private int cust_order_id = 0;
 	private HotelManagement htm = null;
 	private List<Order> cust_order = null;
+	private CustomerT cust_take_away = null;
 
 	public CustomerD() {
 
@@ -31,6 +32,13 @@ public class CustomerD implements Customer {
 		this.cust_order = new ArrayList<Order>();
 		this.htm = new HotelManagement();
 
+	}
+	public CustomerD(boolean t){
+		this.save_Customer_Id();
+		this.save_Customer_Vehicle();
+		this.cust_order = new ArrayList<Order>();
+		this.htm = new HotelManagement();
+		
 	}
 
 	public int getCust_idD() {
@@ -153,5 +161,16 @@ public class CustomerD implements Customer {
 		// TODO Auto-generated method stub
 		return this.cust_order_id;
 	}
+
+	public CustomerT getCust_take_away() {
+		return cust_take_away;
+	}
+
+	public void setCust_take_away(CustomerT cust_take_away) {
+		this.cust_take_away = new CustomerT();
+		this.cust_take_away = cust_take_away;
+	}
+	
+	
 
 }

@@ -1,44 +1,46 @@
 package PojoClasses;
-import interfaces.*;	
-public class CustomerT implements Customer{
-	
 
-	private String cust_add= "" ;
-	private int cust_cell= 0 ;
-	private String cust_coupon= "" ;
-	@Override
-	public void save_Customer_Name(String name) {
-		// TODO Auto-generated method stub
-		
+import interfaces.*;
+
+public class CustomerT {
+
+	private String cust_add = "";
+	private float cust_cell = 0;
+	private String cust_coupon = "";
+
+	public CustomerT(String cust_add, int cust_cell, String cust_coupon) {
+		super();
+		this.cust_add = cust_add;
+		this.cust_cell = cust_cell;
+		this.cust_coupon = cust_coupon;
 	}
-	@Override
-	public void save_Customer_Id(int id) {
-		// TODO Auto-generated method stub
-		
+
+	public CustomerT() {
+		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public void save_Customer_Vehicle(String vehicle) {
-		// TODO Auto-generated method stub
-		
+
+	public String getCust_add() {
+		return cust_add;
 	}
-	@Override
-	public void save_Customer_Order_No(int no) {
-		// TODO Auto-generated method stub
-		
+
+	public void setCust_add(String cust_add) {
+		this.cust_add = cust_add;
 	}
-	@Override
-	public void save_Customer_Total(float total) {
-		// TODO Auto-generated method stub
-		
+
+	public float getCust_cell() {
+		return cust_cell;
 	}
-	@Override
-	public void save_Customer_Feedback(String feed) {
-		// TODO Auto-generated method stub
-		
+
+	public void setCust_cell(float cust_cell) {
+		this.cust_cell = cust_cell;
 	}
-	@Override
-	public void save_Customer_OrderDetails(Order order) {
-		// TODO Auto-generated method stub
-		
+
+	public String getCust_coupon() {
+		return cust_coupon;
 	}
+
+	public void setCust_coupon(String cust_coupon) {
+		this.cust_coupon = cust_coupon;
+	}
+
 }
