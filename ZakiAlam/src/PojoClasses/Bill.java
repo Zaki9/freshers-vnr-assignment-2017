@@ -26,26 +26,28 @@ public class Bill {
 		Order o =null;
         float t=0;
 
-		System.out.println("Invoice");
-		System.out.println("cust_id "+this.cust.get_Customer_Id());
-		System.out.println("c_orderid "+this.cust.get_Customer_Order_Id());
+		System.out.printf("%-22s%-22s%-22s\n"," ","Invoice"," ");
+		System.out.println("Cust_id   "+this.cust.get_Customer_Id());
+		System.out.println("C_orderid "+this.cust.get_Customer_Order_Id());
+		System.out.println();
+		System.out.printf("%-22s%-22s%-22s\n","Item","Quantity","Cost");
 		Iterator itr = ord.iterator();
 		while (itr.hasNext()) {
 			o= (Order) itr.next();
-			System.out.println(o.getItem_name() + " " + o.getItem_cost()+ " "+o.getItem_quantity());
+			System.out.printf("%-22s%-22s%-22s\n",o.getItem_name(),o.getItem_quantity(),o.getItem_cost());
 			
 			String str[] = o.getItem_cost().split("\\.");
-			System.out.println(o.getItem_cost());
-			t+=Integer.parseInt(str[1])*o.getItem_quantity() ;
+ 			t+=Integer.parseInt(str[1])*o.getItem_quantity() ;
 			
 
 		}
 		
 
+		System.out.printf("%-22s%-22s%-22s\n","-------","-------","-------");
+		System.out.printf("%-22s%-22s%-22s\n","GST"," ","Rs "+String.valueOf(t*36/100));
+		System.out.printf("%-22s%-22s%-22s\n","Sub Total"," ","Rs "+ String.valueOf(t));
 		
-		System.out.println("gst "+ t*36/100);
-		System.out.println("sub total Rs."+ t);
-		System.out.println("Total Rs."+ (t + (t*36)/100));
+		System.out.printf("%-22s%-22s%-22s\n","Total(Rounding Off)"," ","Rs "+ String.valueOf((t + (t*36)/100)));
 
 		
 
