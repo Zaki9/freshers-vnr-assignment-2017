@@ -25,6 +25,21 @@ public class Menu {
 			return rf.readOrder();
 
 		}
+		else if(i==3)
+		{
+			ReadFile rf = new ReadFile("src\\DataFiles\\Beverages.txt");
+			return rf.readOrder();
+		}
+		else if(i==4)
+		{
+			ReadFile rf = new ReadFile("src\\DataFiles\\Dessert.txt");
+			return rf.readOrder();
+		}
+		else if(i==5)
+		{
+			ReadFile rf = new ReadFile("src\\DataFiles\\IndianBreads.txt");
+			return rf.readOrder();
+		}
 		return null;
 
 	}

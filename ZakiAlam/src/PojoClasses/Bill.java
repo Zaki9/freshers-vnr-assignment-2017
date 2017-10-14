@@ -44,8 +44,8 @@ public class Bill {
 
 		
 		System.out.println("gst "+ t*36/100);
-		System.out.println("sub total  "+ t);
-		System.out.println("Total  "+ (t + (t*36)/100));
+		System.out.println("sub total Rs."+ t);
+		System.out.println("Total Rs."+ (t + (t*36)/100));
 
 		
 

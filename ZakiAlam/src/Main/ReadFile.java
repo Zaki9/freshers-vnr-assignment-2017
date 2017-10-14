@@ -72,7 +72,6 @@ public  java.util.List<Order>  readOrder(){
 	        
 		}
 		in.close();
-       
        return lo ;
 		
 	} catch (FileNotFoundException e) {
