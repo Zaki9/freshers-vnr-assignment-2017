@@ -11,8 +11,8 @@ public class Bill {
 	private float total = 0;
 	private String pay_type = "";
 	private String coupon = "";
-	// private String food_details= "" ;
 	private Customer cust;
+	private int cust_tableno;
 
 	public Bill(String order_type, Customer cust) {
 		super();
@@ -20,36 +20,49 @@ public class Bill {
 		this.cust = cust;
 	}
 
+	public Bill(String order_type, CustomerD cust, int cust_tableno) {
+		super();
+		this.order_type = order_type;
+		this.cust = cust;
+		this.cust_tableno = cust_tableno;
+
+	}
+
 	public void PrintBill() {
 
 		List<Order> ord = this.cust.get_Customer_OrderDetails();
-		Order o =null;
-        float t=0;
+		Order o = null;
+		float t = 0;
 
-		System.out.printf("%-22s%-22s%-22s\n"," ","Invoice"," ");
-		System.out.println("Cust_id   "+this.cust.get_Customer_Id());
-		System.out.println("C_orderid "+this.cust.get_Customer_Order_Id());
-		System.out.println();
-		System.out.printf("%-22s%-22s%-22s\n","Item","Quantity","Cost");
+		System.out.printf("%-22s%-22s%-22s\n", " ", "Invoice", " ");
+		System.out.println("Cust_id    " + this.cust.get_Customer_Id());
+		System.out.println("C_orderid  " + this.cust.get_Customer_Order_Id());
+		System.out.println("Order Type " + this.order_type);
+		if (this.order_type.equals("DiveIN")) {
+			System.out.println("Customer_Table_no " + this.cust_tableno);
+		}
+		System.out.printf("%-22s%-22s%-22s\n", "-------", "-------", "-------");
+
+		System.out.printf("%-22s%-22s%-22s\n", "Item", "Quantity", "Cost");
 		Iterator itr = ord.iterator();
 		while (itr.hasNext()) {
-			o= (Order) itr.next();
-			System.out.printf("%-22s%-22s%-22s\n",o.getItem_name(),o.getItem_quantity(),o.getItem_cost());
-			
+			o = (Order) itr.next();
+			System.out.printf("%-22s%-22s%-22s\n", o.getItem_name(),
+					o.getItem_quantity(), o.getItem_cost());
+
 			String str[] = o.getItem_cost().split("\\.");
- 			t+=Integer.parseInt(str[1])*o.getItem_quantity() ;
-			
+			t += Integer.parseInt(str[1]) * o.getItem_quantity();
 
 		}
-		
 
-		System.out.printf("%-22s%-22s%-22s\n","-------","-------","-------");
-		System.out.printf("%-22s%-22s%-22s\n","GST"," ","Rs "+String.valueOf(t*36/100));
-		System.out.printf("%-22s%-22s%-22s\n","Sub Total"," ","Rs "+ String.valueOf(t));
-		
-		System.out.printf("%-22s%-22s%-22s\n","Total(Rounding Off)"," ","Rs "+ String.valueOf((t + (t*36)/100)));
+		System.out.printf("%-22s%-22s%-22s\n", "-------", "-------", "-------");
+		System.out.printf("%-22s%-22s%-22s\n", "GST", " ",
+				"Rs " + String.valueOf(t * 36 / 100));
+		System.out.printf("%-22s%-22s%-22s\n", "Sub Total", " ",
+				"Rs " + String.valueOf(t));
 
-		
+		System.out.printf("%-22s%-22s%-22s\n", "Total(Rounding Off)", " ",
+				"Rs " + String.valueOf((t + (t * 36) / 100)));
 
 	}
 

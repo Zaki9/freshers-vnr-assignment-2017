@@ -33,12 +33,13 @@ public class CustomerD implements Customer {
 		this.htm = new HotelManagement();
 
 	}
-	public CustomerD(boolean t){
+
+	public CustomerD(boolean t) {
 		this.save_Customer_Id();
 		this.save_Customer_Vehicle();
 		this.cust_order = new ArrayList<Order>();
 		this.htm = new HotelManagement();
-		
+
 	}
 
 	public int getCust_idD() {
@@ -170,7 +171,5 @@ public class CustomerD implements Customer {
 		this.cust_take_away = new CustomerT();
 		this.cust_take_away = cust_take_away;
 	}
-	
-	
 
 }

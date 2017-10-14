@@ -62,10 +62,16 @@ public  java.util.List<Order>  readOrder(){
 		BufferedReader in = new BufferedReader(new FileReader(this.file_name));
 		String line; 
 		List <Order> lo = new ArrayList<Order>();
+		System.out.printf("%-22s%-22s%-22s\n","ID","Item","Cost");
+		System.out.printf("%-22s%-22s%-22s\n","-------","-------","-------");
+
+
 		while((line = in.readLine()) != null)
 		{
-		    System.out.println(line);
+		    //System.out.println(line);
 	        String [] arr = line.split(" ");
+			System.out.printf("%-22s%-22s%-22s\n",arr[0],arr[1],arr[2]);
+
 	        Order  order = new Order( Integer.parseInt(arr[0]), arr[1], (arr[2])) ;
 	        lo.add(order);
 	        
