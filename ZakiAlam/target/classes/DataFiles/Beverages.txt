@@ -1,0 +1,6 @@
+170 Mineral-Water Rs.20
+171 Cold-Drink(200ml) Rs.30
+172 Lime-Water Rs.30
+173 Mojito Rs.60
+174 Juice Rs.50
+175 Maaza Rs.30

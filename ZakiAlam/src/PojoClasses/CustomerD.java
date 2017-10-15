@@ -74,42 +74,36 @@ public class CustomerD implements Customer {
 		return cust_manager_obj;
 	}
 
-	@Override
 	public void save_Customer_Name(String name) {
 		// TODO Auto-generated method stub
 		this.cust_name = name;
 
 	}
 
-	@Override
 	public void save_Customer_Id() {
 		// TODO Auto-generated method stub
 		this.cust_idD = (int) (Math.random() * 1000);
 
 	}
 
-	@Override
 	public void save_Customer_Vehicle() {
 		// TODO Auto-generated method stub
 		this.cust_vehno = "AP04" + (int) (Math.random() * 1000);
 
 	}
 
-	@Override
 	public void save_Customer_Feedback(String feed) {
 		// TODO Auto-generated method stub
 		this.cust_feed = feed;
 
 	}
 
-	@Override
 	public void save_Customer_OrderDetails(Order order) {
 		// TODO Auto-generated method stub
 		this.cust_order.add(order);
 
 	}
 
-	@Override
 	public void save_Customer_Order_Id() {
 		// TODO Auto-generated method stub
 		this.cust_order_id = (int) (Math.random() * 5001);
@@ -124,40 +118,34 @@ public class CustomerD implements Customer {
 		return htm;
 	}
 
-	@Override
 	public void get_Customer_Name() {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public int get_Customer_Id() {
 		// TODO Auto-generated method stub
 		return this.cust_idD;
 
 	}
 
-	@Override
 	public String get_Customer_Feedback() {
 		// TODO Auto-generated method stub
 		return this.cust_feed;
 
 	}
 
-	@Override
 	public void save_Customer_Number(float cust_cell) {
 		// TODO Auto-generated method stub
 		this.cust_cell = cust_cell;
 
 	}
 
-	@Override
 	public List<Order> get_Customer_OrderDetails() {
 		// TODO Auto-generated method stub
 		return this.cust_order;
 	}
 
-	@Override
 	public int get_Customer_Order_Id() {
 		// TODO Auto-generated method stub
 		return this.cust_order_id;
