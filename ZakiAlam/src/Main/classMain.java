@@ -14,8 +14,7 @@ public class classMain {
 		int i = 0, w = 0;
 		System.out.println("Hey , Welcome to Red Ruby Restaurant "
 				+ "\nPlease provide the keys to V.P guys for car parking");
-		System.out
-				.println("For having a Seat inside Ruby press 1 or press 2 for Takeaway");
+		System.out.println("For Dine in press 1 or press 2 for Takeaway");
 
 		List<Order> userorders = null;
 		do {
@@ -34,7 +33,7 @@ public class classMain {
 
 			System.out.println("Car parked safely , Table alloted ");
 			System.out
-					.println("Press 1 for Normal water or press 2 for Mineral Water , else 3");
+					.println("Press 1 for Normal Water or press 2 for Mineral Water , Else press 3");
 			i = in.nextInt();
 			w = i;
 			if (i == 2) {
@@ -59,7 +58,7 @@ public class classMain {
 			lb = true;
 
 			System.out
-					.println("Press 1 for NonVeg , 2 for Veg , 3 for Beverages , 4 for Dessert , 5 for Indian Breads , anyother key to exit");
+					.println("MENU \nPress 1 for NonVeg \nPress 2 for Veg \nPress 3 for Beverages \nPress 4 for Dessert \nPress 5 for Indian Breads \nPress 6 to Exit");
 			i = in.nextInt();
 
 			int choice;
@@ -67,7 +66,8 @@ public class classMain {
 			switch (i) {
 			case 1:
 			case 2: {
-				System.out.println("Press 1 for Starters,2 for MainCourse");
+				System.out
+						.println("Press 1 for Starters\nPress 2 for MainCourse");
 				choice = in.nextInt();
 				if (choice != 1 && choice != 2) {
 					lb = false;
@@ -108,7 +108,7 @@ public class classMain {
 			Iterator itr = ol.iterator();
 
 			System.out
-					.println("Press the id no to select the order else press anything to go back");
+					.println("Press the id no to select the order else press 0 to go back");
 			int id = in.nextInt();
 			while (itr.hasNext()) {
 				Order or = (Order) itr.next();
@@ -116,6 +116,9 @@ public class classMain {
 					lb = false;
 					break;
 				}
+			}
+			if (id == 0) {
+				continue;
 			}
 
 			if (lb == true) {
@@ -131,7 +134,7 @@ public class classMain {
 				Order o = (Order) itruo.next();
 				if (id == o.getItem_id()) {
 					System.out
-							.println("Order Contains this item , do you wnna change the quantity ? if no press 0 , else press the new quantity no");
+							.println("Order Contains this item ,Do you want to change the quantity ?\nIf NO press 0 , else press the new quantity no");
 					q = in.nextInt();
 					if (q <= 0) {
 						System.out.println("Invalid Quantity");
@@ -152,15 +155,16 @@ public class classMain {
 					Order o = (Order) itr.next();
 					if (id == o.getItem_id()) {
 						System.out
-								.println("Please Enter the Quantity of the order");
+								.println("Please Enter the Quantity of the Order");
 						q = in.nextInt();
 						if (q <= 0) {
-							System.out.println("Please enter a valid quantity");
+							System.out.println("Please Enter a valid Quantity");
 							break;
 						}
+						o.setItem_id(id);
+						o.setItem_quantity(q);
 						cd.save_Customer_OrderDetails(o);
 
-						o.setItem_quantity(q);
 						break;
 					}
 
@@ -170,34 +174,68 @@ public class classMain {
 
 			if (lb == true) {
 				cd.save_Customer_Order_Id();
-				System.out.println("ORDER DETAILS : ");
-				System.out.printf("%-22s%-22s%-22s%-22s\n", "Item", "Quantity",
-						"Cost", "Total_Cost");
-
-				System.out.printf("%-22s%-22s%-22s%-22s\n", "-------",
-						"-------", "-------", "-------");
-
-				userorders = cd.get_Customer_OrderDetails();
-				itr = userorders.iterator();
-				while (itr.hasNext()) {
-					Order or = (Order) itr.next();
-					String arr[] = or.getItem_cost().split("\\.");
-					String s = "Rs."
-							+ String.valueOf(Integer.parseInt(arr[1])
-									* or.getItem_quantity());
-					System.out.printf("%-22s%-22s%-22s%-22s\n",
-							or.getItem_name(), or.getItem_quantity(),
-							or.getItem_cost(), s);
-				}
-				// edit order
-
+				cd.PrintOrdersDetails();
 				System.out
-						.println("Want to confirm the order press 1 , Wish to add more items press 2, Want to cancel press 3");
+						.println("Wish to Confirm the Order Press 1 \nWish to Add more items Press 2 \nWish to Edit the Order Press 3\nWish to Cancel the Order Press 4");
+
 				i = in.nextInt();
 				if (i == 1) {
 					f = false;
 					break;
 				} else if (i == 3) {
+
+					System.out.println("Press the Item_id for Options");
+					id = in.nextInt();
+					List ord = cd.get_Customer_OrderDetails();
+					Iterator ix = ord.iterator();
+					i = -1;
+					while (ix.hasNext()) {
+						Order temp = (Order) ix.next();
+						if (id == temp.getItem_id()) {
+							System.out
+									.println("Press 1 to Remove the Item , Press 2 to Change the Quantity");
+							i = in.nextInt();
+							if (i == 1) {
+								cd.get_Customer_OrderDetails().remove(temp);
+								System.out.println("Item Removed");
+								break;
+							} else if (i == 2) {
+								System.out
+										.println("Please Enter the Quantity of the order");
+								q = in.nextInt();
+								if (q <= 0) {
+									System.out
+											.println("Please Enter a valid Quantity");
+									break;
+								}
+								temp.setItem_quantity(q);
+								System.out.println("Quantity Updated");
+							}
+						}
+
+					}
+					if (i == -1) {
+						System.out.println("Invalid ID");
+					}
+					System.out.println("Updated Order :");
+					cd.PrintOrdersDetails();
+					System.out
+							.println("Please Press 1 to Generate the Bill,  Press 2 to continue");
+					i = in.nextInt();
+					if (i == 1) {
+						if (cd.get_Customer_OrderDetails().isEmpty()) {
+							System.out
+									.println("Sorry ,Add some Items to Generate the Bill");
+							continue;
+						}
+
+						f = false;
+						break;
+					}
+
+				}
+
+				else if (i == 4) {
 					System.out.println("Its..okay .THanks for your time.");
 					System.exit(0);
 				}
@@ -222,14 +260,14 @@ public class classMain {
 
 		} else {
 
-			b = new Bill("DiveIN", cd, cd.getCust_tableno());
+			b = new Bill("DineIN", cd, cd.getCust_tableno());
 
 		}
 
 		b.PrintBill();
 
 		System.out
-				.println("Wanna Give FeedBack! Press 1 for it ,else press anything to exit");
+				.println("Wanna Give FeedBack! Press 1 for it \nPress 0 to exit");
 
 		i = in.nextInt();
 
@@ -252,7 +290,7 @@ public class classMain {
 
 		}
 
-		System.out.println("Thanks for your time , Visit Again");
+		System.out.println("Thanks for your time , Visit Us Again.");
 
 	}
 

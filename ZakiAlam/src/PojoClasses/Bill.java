@@ -38,7 +38,7 @@ public class Bill {
 		System.out.println("Cust_id    " + this.cust.get_Customer_Id());
 		System.out.println("C_orderid  " + this.cust.get_Customer_Order_Id());
 		System.out.println("Order Type " + this.order_type);
-		if (this.order_type.equals("DiveIN")) {
+		if (this.order_type.equals("DineIN")) {
 			System.out.println("Customer_Table_no " + this.cust_tableno);
 		}
 		System.out.printf("%-22s%-22s%-22s%-22s\n", "-------", "-------",

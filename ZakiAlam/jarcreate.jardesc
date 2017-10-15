@@ -10,12 +10,16 @@
             <packagesToUnSeal/>
         </sealing>
     </manifest>
-    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
-        <file path="/RMS/.classpath"/>
+    <selectedElements exportClassFiles="false" exportJavaFiles="false" exportOutputFolder="true">
         <folder path="/RMS/target"/>
-        <folder path="/RMS/bin"/>
         <file path="/RMS/.project"/>
+        <file path="/RMS/RMSJar.jar"/>
         <javaElement handleIdentifier="=RMS/src"/>
+        <file path="/RMS/man"/>
         <file path="/RMS/pom.xml"/>
+        <file path="/RMS/.classpath"/>
+        <folder path="/RMS/bin"/>
+        <file path="/RMS/ZakiREADME.md"/>
+        <file path="/RMS/jarcreate.jardesc"/>
     </selectedElements>
 </jardesc>

@@ -3,6 +3,7 @@
 import interfaces.Customer;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -159,5 +160,31 @@ public class CustomerD implements Customer {
 		this.cust_take_away = new CustomerT();
 		this.cust_take_away = cust_take_away;
 	}
+	public void PrintOrdersDetails(){
+		System.out.println("ORDER DETAILS : ");
 
+		System.out.printf("%-22s%-22s%-22s%-22s%-22s\n", "Item_ID",
+				"Item", "Quantity", "Cost", "Total_Cost");
+
+		System.out.printf("%-22s%-22s%-22s%-22s%-22s\n", "-------",
+				"-------", "-------", "-------", "-------");
+		List<Order> userorders = this.get_Customer_OrderDetails();
+		Iterator itr = userorders.iterator();
+		while (itr.hasNext()) {
+			Order or = (Order) itr.next();
+			String arr[] = or.getItem_cost().split("\\.");
+			String s = "Rs."
+					+ String.valueOf(Integer.parseInt(arr[1])
+							* or.getItem_quantity());
+			System.out.printf("%-22s%-22s%-22s%-22s%-22s\n",
+					or.getItem_id(), or.getItem_name(),
+					or.getItem_quantity(), or.getItem_cost(), s);
+
+		
+		
+		
+		
+	}
+
+}
 }
