@@ -41,28 +41,36 @@ public class Bill {
 		if (this.order_type.equals("DiveIN")) {
 			System.out.println("Customer_Table_no " + this.cust_tableno);
 		}
-		System.out.printf("%-22s%-22s%-22s\n", "-------", "-------", "-------");
+		System.out.printf("%-22s%-22s%-22s%-22s\n", "-------", "-------",
+				"-------", "-------");
 
-		System.out.printf("%-22s%-22s%-22s\n", "Item", "Quantity", "Cost");
+		System.out.printf("%-22s%-22s%-22s%-22s\n", "Item", "Quantity", "Cost",
+				"Total_Cost");
 		Iterator itr = ord.iterator();
 		while (itr.hasNext()) {
 			o = (Order) itr.next();
-			System.out.printf("%-22s%-22s%-22s\n", o.getItem_name(),
-					o.getItem_quantity(), o.getItem_cost());
-
 			String str[] = o.getItem_cost().split("\\.");
+
+			String s = "Rs."
+					+ String.valueOf(Integer.parseInt(str[1])
+							* o.getItem_quantity());
+
+			System.out.printf("%-22s%-22s%-22s%-22s\n", o.getItem_name(),
+					o.getItem_quantity(), o.getItem_cost(), s);
+
 			t += Integer.parseInt(str[1]) * o.getItem_quantity();
 
 		}
 
-		System.out.printf("%-22s%-22s%-22s\n", "-------", "-------", "-------");
-		System.out.printf("%-22s%-22s%-22s\n", "GST", " ",
-				"Rs " + String.valueOf(t * 36 / 100));
-		System.out.printf("%-22s%-22s%-22s\n", "Sub Total", " ",
+		System.out.printf("%-22s%-22s%-22s%-22s\n", "-------", "-------",
+				"-------", "-------");
+		System.out.printf("%-22s%-22s%-22s%-22s\n", "GST", " ", " ", "Rs "
+				+ String.valueOf(t * 36 / 100));
+		System.out.printf("%-22s%-22s%-22s%-22s\n", "Sub Total", " ", " ",
 				"Rs " + String.valueOf(t));
 
-		System.out.printf("%-22s%-22s%-22s\n", "Total(Rounding Off)", " ",
-				"Rs " + String.valueOf((t + (t * 36) / 100)));
+		System.out.printf("%-22s%-22s%-22s%-22s\n", "Total(Rounding Off)", " ",
+				" ", "Rs " + String.valueOf((t + (t * 36) / 100)));
 
 	}
 

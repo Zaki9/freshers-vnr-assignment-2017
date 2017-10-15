@@ -15,7 +15,6 @@ public class Menu {
 		} else if (i == 1 && choice == 2) {
 			ReadFile rf = new ReadFile("src\\DataFiles\\MainCourseNonVeg.txt");
 			return rf.readOrder();
-			
 
 		} else if (i == 2 && choice == 1) {
 			ReadFile rf = new ReadFile("src\\DataFiles\\StarterVeg.txt");
@@ -24,19 +23,13 @@ public class Menu {
 			ReadFile rf = new ReadFile("src\\DataFiles\\MainCourseVeg.txt");
 			return rf.readOrder();
 
-		}
-		else if(i==3)
-		{
+		} else if (i == 3) {
 			ReadFile rf = new ReadFile("src\\DataFiles\\Beverages.txt");
 			return rf.readOrder();
-		}
-		else if(i==4)
-		{
+		} else if (i == 4) {
 			ReadFile rf = new ReadFile("src\\DataFiles\\Dessert.txt");
 			return rf.readOrder();
-		}
-		else if(i==5)
-		{
+		} else if (i == 5) {
 			ReadFile rf = new ReadFile("src\\DataFiles\\IndianBreads.txt");
 			return rf.readOrder();
 		}

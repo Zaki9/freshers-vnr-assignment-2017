@@ -39,7 +39,7 @@ public class classMain {
 			w = i;
 			if (i == 2) {
 				w = 2;
-				Order water = new Order(701, "Bisleri-Bottle", "20");
+				Order water = new Order(701, "Bisleri-Bottle", "Rs.20");
 				cd.save_Customer_OrderDetails(water);
 
 			}
@@ -171,20 +171,25 @@ public class classMain {
 			if (lb == true) {
 				cd.save_Customer_Order_Id();
 				System.out.println("ORDER DETAILS : ");
-				System.out.printf("%-22s%-22s%-22s\n", "Item", "Quantity",
-						"Cost");
+				System.out.printf("%-22s%-22s%-22s%-22s\n", "Item", "Quantity",
+						"Cost", "Total_Cost");
 
-				System.out.printf("%-22s%-22s%-22s\n", "-------", "-------",
-						"-------");
+				System.out.printf("%-22s%-22s%-22s%-22s\n", "-------",
+						"-------", "-------", "-------");
 
 				userorders = cd.get_Customer_OrderDetails();
 				itr = userorders.iterator();
 				while (itr.hasNext()) {
 					Order or = (Order) itr.next();
-					System.out.printf("%-22s%-22s%-22s\n", or.getItem_name(),
-							or.getItem_quantity(), or.getItem_cost());
+					String arr[] = or.getItem_cost().split("\\.");
+					String s = "Rs."
+							+ String.valueOf(Integer.parseInt(arr[1])
+									* or.getItem_quantity());
+					System.out.printf("%-22s%-22s%-22s%-22s\n",
+							or.getItem_name(), or.getItem_quantity(),
+							or.getItem_cost(), s);
 				}
-				//edit order
+				// edit order
 
 				System.out
 						.println("Want to confirm the order press 1 , Wish to add more items press 2, Want to cancel press 3");
