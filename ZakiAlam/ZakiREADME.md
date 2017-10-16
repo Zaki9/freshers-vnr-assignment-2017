@@ -4,6 +4,7 @@
 - RMSJar.jar file is present inside the ZakiAlam subdirectory.
 - Open the file in the cmd "java -jar RMSJar.jar". 
 - You will get the Output on the cmd .
+- Disclaimer : All inputs are in the numeric form , except Customer Name and Feedback.
 - Press 1 for Dive In , else press 2 for the takeaway services.
 - For Dive In , you will also get an option to have the water from the Bus Boy .
 - Then a Menu will be Provided to order the food. You can select the appropriate choices.

@@ -106,82 +106,85 @@ public class classMain {
 			}
 
 			Iterator itr = ol.iterator();
-			boolean z =true;
-			int id=0;
-			while(z)
-			{lb =true ;
-			System.out
-					.println("Press the id no to select the order else press 0 to go back");
-			 id = in.nextInt();
-			while (itr.hasNext()) {
-				Order or = (Order) itr.next();
-				if (or.getItem_id() == id) {
-					lb = false;
-					break;
-				}
-			}
-			if (id == 0) {
-				z=false ;
-				break;
-			}
-
-			if (lb == true) {
-				System.out.println("Please Enter a valid Id");
-				continue;
-			}
-			lb = true;
-
-			userorders = cd.get_Customer_OrderDetails();
-			Iterator itruo = userorders.iterator();
-			int q = -1;
-			while (itruo.hasNext()) {
-				Order o = (Order) itruo.next();
-				if (id == o.getItem_id()) {
-					System.out
-							.println("Order Contains this item ,Do you want to change the quantity ?\nIf NO press 0 , else press the new quantity no");
-					q = in.nextInt();
-					if (q <= 0) {
-						System.out.println("Invalid Quantity");
+			boolean z = true;
+			int id = 0;
+			while (z) {
+				lb = true;
+				System.out
+						.println("Press the ID No to select the order else press 0 to go back");
+				id = in.nextInt();
+				itr = ol.iterator();
+				while (itr.hasNext()) {
+					Order or = (Order) itr.next();
+					if (or.getItem_id() == id) {
+						lb = false;
 						break;
 					}
-					o.setItem_quantity(q);
-					System.out.println("Quantity Updated");
+				}
+				if (id == 0) {
+					z = false;
 					break;
 				}
 
-			}
+				if (lb == true) {
+					System.out.println("Please Enter a Valid ID");
+					continue;
+				}
 
-			itr = ol.iterator();
-            // , Order Quantity
-			if (q == -1) {
-
-				while (itr.hasNext()) {
-					Order o = (Order) itr.next();
+				userorders = cd.get_Customer_OrderDetails();
+				Iterator itruo = userorders.iterator();
+				int q = -1;
+				while (itruo.hasNext()) {
+					Order o = (Order) itruo.next();
 					if (id == o.getItem_id()) {
 						System.out
-								.println("Please Enter the Quantity of the Order");
+								.println("Order contains this Item ,Do you want to change the Quantity ?\nIf NO press 0 , else press the New Quantity No");
 						q = in.nextInt();
-						if (q <= 0) {
-							System.out.println("Please Enter a valid Quantity");
+						if (q < 0) {
+							System.out.println("Invalid Quantity");
+							break;
+						} else if (q == 0) {
 							break;
 						}
-						o.setItem_id(id);
 						o.setItem_quantity(q);
-						cd.save_Customer_OrderDetails(o);
-
+						System.out.println("Quantity Updated");
 						break;
 					}
 
 				}
 
-			}
+				itr = ol.iterator();
+				// , Order Quantity
+				if (q == -1) {
+
+					while (itr.hasNext()) {
+						Order o = (Order) itr.next();
+						if (id == o.getItem_id()) {
+							System.out
+									.println("Please Enter the Quantity of the Order");
+							q = in.nextInt();
+							if (q <= 0) {
+								System.out
+										.println("Please Enter a valid Quantity");
+								break;
+							}
+							o.setItem_id(id);
+							o.setItem_quantity(q);
+							cd.save_Customer_OrderDetails(o);
+
+							break;
+						}
+
+					}
+
+				}
 			}
 
 			if (lb == true) {
 				cd.save_Customer_Order_Id();
 				cd.PrintOrdersDetails();
 				System.out
-						.println("Wish to Confirm the Order Press 1 \nWish to Add more items Press 2 \nWish to Edit the Order Press 3\nWish to Cancel the Order Press 4");
+						.println("\nWish to Confirm the Order Press 1 \nWish to Add more Items Press 2 \nWish to Edit the Order Press 3\nWish to Cancel the Order Press 4");
 
 				i = in.nextInt();
 				if (i == 1) {
@@ -207,7 +210,7 @@ public class classMain {
 							} else if (i == 2) {
 								System.out
 										.println("Please Enter the Quantity of the order");
-							    int	q = in.nextInt();
+								int q = in.nextInt();
 								if (q <= 0) {
 									System.out
 											.println("Please Enter a valid Quantity");
@@ -241,7 +244,7 @@ public class classMain {
 				}
 
 				else if (i == 4) {
-					System.out.println("Its..okay .THanks for your time.");
+					System.out.println("Its..Okay .THanks for your time.");
 					System.exit(0);
 				}
 			}
