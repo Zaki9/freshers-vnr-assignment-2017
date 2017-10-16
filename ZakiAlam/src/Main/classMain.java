@@ -106,10 +106,13 @@ public class classMain {
 			}
 
 			Iterator itr = ol.iterator();
-
+			boolean z =true;
+			int id=0;
+			while(z)
+			{lb =true ;
 			System.out
 					.println("Press the id no to select the order else press 0 to go back");
-			int id = in.nextInt();
+			 id = in.nextInt();
 			while (itr.hasNext()) {
 				Order or = (Order) itr.next();
 				if (or.getItem_id() == id) {
@@ -118,7 +121,8 @@ public class classMain {
 				}
 			}
 			if (id == 0) {
-				continue;
+				z=false ;
+				break;
 			}
 
 			if (lb == true) {
@@ -148,7 +152,7 @@ public class classMain {
 			}
 
 			itr = ol.iterator();
-
+            // , Order Quantity
 			if (q == -1) {
 
 				while (itr.hasNext()) {
@@ -170,6 +174,7 @@ public class classMain {
 
 				}
 
+			}
 			}
 
 			if (lb == true) {
@@ -202,7 +207,7 @@ public class classMain {
 							} else if (i == 2) {
 								System.out
 										.println("Please Enter the Quantity of the order");
-								q = in.nextInt();
+							    int	q = in.nextInt();
 								if (q <= 0) {
 									System.out
 											.println("Please Enter a valid Quantity");
@@ -272,10 +277,10 @@ public class classMain {
 		i = in.nextInt();
 
 		if (i == 1 && w != 0) {
-			System.out.println("Please Enter your name");
+			System.out.println("Please Enter your Name");
 			String name = in.next();
 
-			System.out.println("Please Enter your cellno");
+			System.out.println("Please Enter your Cellno");
 			float no = in.nextFloat();
 			ct.setCust_cell(no);
 			System.out.println("Please Enter how you felt !!");
