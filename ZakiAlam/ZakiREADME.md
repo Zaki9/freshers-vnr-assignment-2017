@@ -1,6 +1,6 @@
 # RMS
 
-##How To Run ?
+## How To Run ?
 - RMSJar.jar file is present inside the ZakiAlam subdirectory.
 - Open the file in the cmd "java -jar RMSJar.jar". 
 - You will get the Output on the cmd .
@@ -14,7 +14,7 @@
 - You can confirm or cancel the order and pay the bill.
 - Lastly you can provide the feedback.
 
-##Solution :
+## Solution :
 - Project Contains Following Classes:
 
 1. POJO Classes
@@ -34,9 +34,9 @@
 
 4. Driver Class - classMain.java inside the Main folder.
 
-##How it Works ?
+## How it Works ?
 
-###Approach
+### Approach
  - I made a Customer Interface which is implemented by CustomerT(For Dive In) customers, and can also be implemented by Other Customer Classes
    If we add CustomerB like customers who book the order online , or for take aways (CustomeT).Customer contains the ManagerObject , OrderList(List of Order Object) ,HotelManagementObject
    As a Customer comes in restaraunt , his car is parked by v.p guys, a seat is alloted ,manager is alloted and other details of hotel staff which is stored in HotelManagementObject. 

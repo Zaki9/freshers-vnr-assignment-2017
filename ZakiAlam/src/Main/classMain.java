@@ -201,7 +201,7 @@ public class classMain {
 						Order temp = (Order) ix.next();
 						if (id == temp.getItem_id()) {
 							System.out
-									.println("Press 1 to Remove the Item , Press 2 to Change the Quantity");
+									.println("Press 1 to Remove the Item , Press 2 to Change the Quantity ,Press 0 to Cancel");
 							i = in.nextInt();
 							if (i == 1) {
 								cd.get_Customer_OrderDetails().remove(temp);
@@ -283,16 +283,16 @@ public class classMain {
 			System.out.println("Please Enter your Name");
 			String name = in.next();
 
-			System.out.println("Please Enter your Cellno");
+			System.out.println("Please Enter your CellNo");
 			float no = in.nextFloat();
 			ct.setCust_cell(no);
-			System.out.println("Please Enter how you felt !!");
+			System.out.println("Please Enter How you felt !!");
 			String feed = in.next();
 			cd.save_Customer_Name(name);
 			cd.save_Customer_Feedback(feed);
 
 		} else if (w == 0 || w == 3) {
-			System.out.println("Please Enter how you felt !!");
+			System.out.println("Please Enter How you felt !!");
 			String feed = in.next();
 			cd.save_Customer_Feedback(feed);
 
